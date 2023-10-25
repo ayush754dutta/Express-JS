@@ -147,3 +147,34 @@ const server = http.createServer((req, res) => {
 });
 
 server.listen(5500);
+
+/////////////////////////////////////////////////////////////////////////
+
+// Express JS:
+
+const express = require("express");
+
+const app = express();
+
+// 1. .listen():
+app.listen(5500, () => {
+  console.log("Server is listening to the port 5500");
+});
+
+// 2. .get():
+
+app.get("/", (req, res) => {
+  res.status(200).send("<h1>Welcome to Home Page!</h1>");
+});
+
+app.get("/about", (req, res) => {
+  res.status(200).send("<h1>About Page</h1>");
+});
+
+app.all("*", (req, res) => {
+  res.status(404);
+  res.send("<h1>Page not found</h1>");
+});
+
+
+
