@@ -3,7 +3,7 @@
 "use strict";
 
 console.log("Express Tutorial");
-/*
+
  // HTTP Basics:
 
 const http = require("http");
@@ -14,9 +14,9 @@ const server = http.createServer((request, response) => {
 });
 
 server.listen(5500);
-*/
+
 //////////////////////////////////////////////////////////////
-/*
+
 // HTTP Header:
 const http = require("http");
 
@@ -28,10 +28,10 @@ const server = http.createServer((request, response) => {
 });
 
 server.listen(5500);
-*/
+
 ////////////////////////////////////////////////////////////
 
-/*
+
 // HTTP Request:
 const http = require("http");
 
@@ -62,10 +62,10 @@ const server = http.createServer((request, response) => {
 });
 
 server.listen(5500);
-*/
+
 
 ///////////////////////////////////////////////////////////////
-/*
+
 // HTTP HTML File:
 
 const { readFileSync } = require("fs");
@@ -81,13 +81,13 @@ http
     res.end();
   })
   .listen(7000);
-*/
+
 
 /////////////////////////////////////////////////////////////////
 
 // HTTP-App Example:
 
-const { readFileSync, readSync } = require("fs");
+const { readFileSync } = require("fs");
 
 const homePage = readFileSync(
   "./node-express-course/02-express-tutorial/navbar-app/index.html"
