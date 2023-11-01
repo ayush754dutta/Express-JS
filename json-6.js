@@ -131,3 +131,35 @@ app.listen(5500, () => {
   console.log("Listening to port 5500....");
 });
 
+//////////////////////////////////////////////////////////////
+
+// Query Strings:
+
+const express = require("express");
+
+const app = express();
+
+const { products } = require("./data");
+
+app.get("/api/v1/query", (req, res) => {
+  console.log(req.query);
+  const { search, limit } = req.query;
+  let sortedProducts = [...products];
+  if (search) {
+    sortedProducts = sortedProducts.filter((el) => el.name.startsWith(search));
+  }
+
+  if (limit) {
+    sortedProducts = sortedProducts.slice(0, +limit);
+  }
+
+  if (sortedProducts.length < 1) {
+    return res.json({ success: true, data: [] });
+  }
+
+  return res.json(sortedProducts);
+});
+
+app.listen(7000, () => {
+  console.log("Listening to port 7000...");
+});
